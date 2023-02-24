@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/explorer">
+
+    <fragment
+        android:id="@+id/explorer"
+        android:name="com.example.bodegapp.Explorer"
+        android:label="fragment_explorer"
+        tools:layout="@layout/fragment_explorer" />
+    <fragment
+        android:id="@+id/warehouses"
+        android:name="com.example.bodegapp.Warehouses"
+        android:label="fragment_warehouses"
+        tools:layout="@layout/fragment_warehouses" />
+</navigation>
