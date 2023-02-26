@@ -12,33 +12,10 @@
         android:layout_height="wrap_content"
         app:tabMode="scrollable"
         app:tabInlineLabel="true"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/baseline_warehouse_24"
-            android:text="Bodegas" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/baseline_garage_24"
-            android:text="Cocheras" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/baseline_severe_cold_24"
-            android:text="Cuartos frios" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/baseline_factory_24"
-            android:text="Industrial" />
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -50,5 +27,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/my_tabLayout"
         tools:listitem="@layout/warehouse_card" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
