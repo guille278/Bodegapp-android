@@ -6,4 +6,8 @@
     <string name="login_tv_signin">¿Aún no tienes cuenta?</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="api_url">http://192.168.1.70/rest/public/api</string>
+    <string name="faqs_link">http://192.168.1.70/rest/public/</string>
+    <string name="terms_link">http://192.168.1.70/rest/public/</string>
+    <string name="privacy_link">http://192.168.1.70/rest/public/</string>
+    <string name="support_phone">3319910156</string>
 </resources>

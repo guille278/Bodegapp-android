@@ -19,6 +19,7 @@ import java.util.*
 class WarehouseAdapter(private val warehouses: JSONArray, private val ctx: Context) :
     RecyclerView.Adapter<WarehouseAdapter.ViewHolder>() {
 
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var title: TextView
         var description: TextView
@@ -32,6 +33,7 @@ class WarehouseAdapter(private val warehouses: JSONArray, private val ctx: Conte
             description = itemView.findViewById(R.id.tv_description)
             price = itemView.findViewById(R.id.tv_price)
             services = itemView.findViewById(R.id.rv_services)
+
         }
 
     }
@@ -57,6 +59,10 @@ class WarehouseAdapter(private val warehouses: JSONArray, private val ctx: Conte
 
         holder.services.adapter = ServiceAdapter(warehouses.getJSONObject(position).getJSONArray("services"))
         holder.services.layoutManager = LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
+
+        holder.itemView.setOnClickListener {
+            println(warehouses.getJSONObject(position).getString("title"))
+        }
     }
 
 

@@ -12,10 +12,6 @@
         android:title="Bodegas" />
     <item
         android:id="@+id/menu_Payments"
-        android:icon="@drawable/baseline_payments_24"
-        android:title="Facturacion" />
-    <item
-        android:id="@+id/menu_historial"
-        android:icon="@drawable/baseline_history_24"
-        android:title="Historial" />
+        android:icon="@drawable/baseline_library_books_24"
+        android:title="Facturación" />
 </menu>
