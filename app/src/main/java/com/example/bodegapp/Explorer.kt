@@ -62,7 +62,7 @@ class Explorer : Fragment() {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val requestWarehouses =
                     JsonArrayRequest(
-                        "${resources.getString(R.string.api_url)}/storages/${tab?.id}",
+                        "${resources.getString(R.string.api_url)}/storages/category/${tab?.id}",
                         {
                             binding.rvCards.adapter = context?.let { it1 ->
                                 WarehouseAdapter(it,

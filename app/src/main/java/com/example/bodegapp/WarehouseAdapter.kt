@@ -1,6 +1,7 @@
 package com.example.bodegapp
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +9,13 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.squareup.picasso.Picasso
+import org.imaginativeworld.whynotimagecarousel.ImageCarousel
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import org.json.JSONArray
 import java.text.NumberFormat
 import java.util.*
@@ -20,15 +24,15 @@ class WarehouseAdapter(private val warehouses: JSONArray, private val ctx: Conte
     RecyclerView.Adapter<WarehouseAdapter.ViewHolder>() {
 
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var title: TextView
         var description: TextView
         var price: TextView
-        var image: ImageView
+        var images: ImageCarousel
         var services: RecyclerView
 
         init {
-            image = itemView.findViewById(R.id.imageView0)
+            images = itemView.findViewById(R.id.carousel_card)
             title = itemView.findViewById(R.id.tv_title)
             description = itemView.findViewById(R.id.tv_description)
             price = itemView.findViewById(R.id.tv_price)
@@ -49,19 +53,39 @@ class WarehouseAdapter(private val warehouses: JSONArray, private val ctx: Conte
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Picasso.get().load(
+        /*Picasso.get().load(
             warehouses.getJSONObject(position).getJSONArray("images").getJSONObject(0)
                 .getString("src").toString()
-        ).into(holder.image)
+        ).into(holder.image)*/
+
+        val list = mutableListOf<CarouselItem>()
+
+        (0 until warehouses.getJSONObject(position).getJSONArray("images").length()).forEach {
+            list.add(
+                CarouselItem(
+                    imageUrl = warehouses.getJSONObject(position).getJSONArray("images").getJSONObject(it).getString("src")
+                )
+            )
+        }
+
+        holder.images.setData(list)
+
         holder.title.text = warehouses.getJSONObject(position).getString("title")
         holder.description.text = warehouses.getJSONObject(position).getString("description")
-        holder.price.text = NumberFormat.getCurrencyInstance(Locale.US).format(warehouses.getJSONObject(position).getDouble("price"))
+        holder.price.text = NumberFormat.getCurrencyInstance(Locale.US)
+            .format(warehouses.getJSONObject(position).getDouble("price"))
 
-        holder.services.adapter = ServiceAdapter(warehouses.getJSONObject(position).getJSONArray("services"))
-        holder.services.layoutManager = LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
+        holder.services.adapter =
+            ServiceAdapter(warehouses.getJSONObject(position).getJSONArray("services"))
+        holder.services.layoutManager =
+            LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false)
 
         holder.itemView.setOnClickListener {
-            println(warehouses.getJSONObject(position).getString("title"))
+            /*println(warehouses.getJSONObject(position).getString("title"))
+            ctx.startActivity(Intent(ctx, WarehouseDetail::class.java))*/
+            val intent = Intent(ctx, WarehouseDetail::class.java)
+            intent.putExtra("id", warehouses.getJSONObject(position).getString("id"))
+            ctx.startActivity(intent)
         }
     }
 
