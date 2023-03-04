@@ -55,23 +55,36 @@
         android:id="@+id/google_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Entrar con google"
+        android:layout_marginTop="88dp"
         android:backgroundTint="@color/white"
+        android:text="Entrar con google"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/login"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/login"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintTop_toBottomOf="@+id/registerL" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/signin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="72dp"
         android:text="@string/login_tv_signin"
         android:textColor="@color/purple_200"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/google_login" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/registerL"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Registrate"
+        app:layout_constraintEnd_toEndOf="@+id/login"
+        app:layout_constraintStart_toStartOf="@+id/login"
+        app:layout_constraintTop_toBottomOf="@+id/login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

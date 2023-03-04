@@ -3,22 +3,21 @@ package com.example.bodegapp
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.net.ConnectivityManager
-import android.net.Network
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.coordinatorlayout.widget.CoordinatorLayout
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.example.bodegapp.databinding.ActivityMainBinding
-import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var token: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+
+
 
         val intent = Intent(this, Auth::class.java)
         val preferences: SharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
@@ -40,6 +39,7 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
 
         binding.myNav.setOnItemSelectedListener {
             val navController = findNavController(R.id.cv_main)

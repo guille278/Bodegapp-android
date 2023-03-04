@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
@@ -25,10 +27,12 @@ class Login : Fragment() {
     private val binding get() = _binding!!
     private var credentials: JSONObject = JSONObject()
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
@@ -37,6 +41,12 @@ class Login : Fragment() {
         binding.signin.setOnClickListener {
             findNavController().navigate(R.id.action_login_to_signin)
         }
+        binding.registerL.setOnClickListener(){
+            val intent = Intent(context, Register::class.java)
+            startActivity(intent)
+            this.activity?.finish()
+        }
+
 
         binding.login.setOnClickListener {
             if (validateInput(binding.email, "Correo electronico obligatorio") and validateInput(
@@ -89,6 +99,7 @@ class Login : Fragment() {
         input.error = null
         return true
     }
+
 
     private fun showDialog(title: String, message: String) {
         val dialog = context?.let { AlertDialog.Builder(it) }

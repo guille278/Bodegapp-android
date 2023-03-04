@@ -10,4 +10,9 @@
     <string name="terms_link">http://192.168.1.70/rest/public/</string>
     <string name="privacy_link">http://192.168.1.70/rest/public/</string>
     <string name="support_phone">3319910156</string>
+    <string name="name">Nombre</string>
+    <string name="last_name">Apellidos</string>
+    <string name="address">Dirección</string>
+    <string name="phone">Teléfono</string>
+    <string name="confirm_password">Confirmar contraseña</string>
 </resources>
