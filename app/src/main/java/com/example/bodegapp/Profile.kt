@@ -125,7 +125,9 @@ class Profile : AppCompatActivity() {
 
     fun clearPreferences() {
         sharedPreferences.edit().clear().apply()
-        startActivity(Intent(applicationContext, Auth::class.java))
+        val intent = Intent(this, Auth::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
         finish()
     }
 
