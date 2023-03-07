@@ -52,6 +52,10 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(R.id.warehouses)
                     true
                 }
+                R.id.menu_Payments -> {
+                    navController.navigate(R.id.billing)
+                    true
+                }
                 else -> false
             }
         }

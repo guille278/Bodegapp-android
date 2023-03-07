@@ -5,9 +5,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.constraintlayout.helper.widget.Carousel
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.bodegapp.databinding.ActivityWarehouseDetailBinding
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import java.text.NumberFormat
 import java.util.*
@@ -44,6 +48,8 @@ class WarehouseDetail : AppCompatActivity() {
             binding.detailDescription.setText(data.getString("description"))
             binding.detailM2.setText("Metros cuadrados: ${data.getString("m2")}")
 
+            binding.rvDetailServices.adapter = ServiceAdapter(data.getJSONArray("services"))
+            binding.rvDetailServices.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
             binding.carousel.setData(list)
         }, {
             Toast.makeText(this, "error", Toast.LENGTH_SHORT).show()

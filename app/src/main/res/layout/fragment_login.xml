@@ -44,7 +44,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/login"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:layout_marginTop="8dp"
         android:text="@string/login_btn_login"
         app:layout_constraintEnd_toEndOf="@+id/password"
@@ -54,7 +54,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/google_login"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:text="Entrar con google"
         android:backgroundTint="@color/white"
         android:textColor="@color/black"

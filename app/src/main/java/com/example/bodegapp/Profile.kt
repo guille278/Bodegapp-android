@@ -43,11 +43,11 @@ class Profile : AppCompatActivity() {
 
         val queque = Volley.newRequestQueue(applicationContext)
 
-        binding.etName.editText?.setText("${user.getString("name")} ${user.getString("last_names")}")
+        binding.etName.editText?.setText("${user.getString("name").uppercase(Locale.getDefault())} ${user.getString("last_names").uppercase(Locale.getDefault())}")
         binding.etEmail.editText?.setText(user.getString("email"))
         binding.etPhone.editText?.setText(user.getString("phone"))
-        binding.etRfc.editText?.setText(user.getString("rfc"))
-        binding.etAddress.editText?.setText(user.getString("address"))
+        binding.etRfc.editText?.setText(user.getString("rfc").uppercase(Locale.getDefault()))
+        binding.etAddress.editText?.setText(user.getString("address").uppercase(Locale.getDefault()))
 
         if (!user.getString("verified").isNullOrEmpty()){
             binding.etVerified.setStartIconDrawable(R.drawable.baseline_check_circle_24)

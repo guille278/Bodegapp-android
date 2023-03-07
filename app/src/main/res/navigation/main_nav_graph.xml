@@ -15,4 +15,9 @@
         android:name="com.example.bodegapp.Warehouses"
         android:label="fragment_warehouses"
         tools:layout="@layout/fragment_warehouses" />
+    <fragment
+        android:id="@+id/billing"
+        android:name="com.example.bodegapp.Billing"
+        android:label="fragment_billing"
+        tools:layout="@layout/fragment_billing" />
 </navigation>

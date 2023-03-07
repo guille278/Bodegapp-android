@@ -83,7 +83,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Detalles"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -99,22 +99,19 @@
                     android:text="Servicios:"
                     android:layout_marginTop="4dp"/>
 
-                <ListView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_detail_services"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:listitem="@layout/service_tag" />
+                    tools:itemCount="1"
+                    tools:listitem="@layout/service_tag"/>
 
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Descripción"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -124,7 +121,6 @@
                     android:text="lorem"
                     android:layout_marginTop="4dp"/>
 
-
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
@@ -133,6 +129,7 @@
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <Button
+        android:id="@+id/contract"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginStart="16dp"
