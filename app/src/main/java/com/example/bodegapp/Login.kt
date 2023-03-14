@@ -45,6 +45,8 @@ class Login : Fragment() {
             val intent = Intent(context, Register::class.java)
             startActivity(intent)
             this.activity?.finish()
+
+
         }
 
 
@@ -58,7 +60,7 @@ class Login : Fragment() {
                 credentials.put("password", binding.password.editText?.text.toString())
                 val request = JsonObjectRequest(
                     Method.POST,
-                    "${resources.getString(R.string.api_url)}/auth/login",
+                    "${resources.getString(R.string.api_url)}/auth/register",
                     credentials,
                     {
                         if (it.getBoolean("success")) {

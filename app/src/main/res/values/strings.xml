@@ -5,14 +5,17 @@
     <string name="login_btn_login">Iniciar sesión</string>
     <string name="login_tv_signin">¿Aún no tienes cuenta?</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="api_url">http://192.168.1.70/rest/public/api</string>
-    <string name="faqs_link">http://192.168.1.70/rest/public/</string>
-    <string name="terms_link">http://192.168.1.70/rest/public/</string>
-    <string name="privacy_link">http://192.168.1.70/rest/public/</string>
+    <string name="api_url">http://192.168.100.21/rest/public/api</string>
+    <string name="faqs_link">http://192.168.100.21/rest/public/</string>
+    <string name="terms_link">http://192.168.100.21/rest/public/</string>
+    <string name="privacy_link">http://192.168.100.21/rest/public/</string>
     <string name="support_phone">3319910156</string>
     <string name="name">Nombre</string>
     <string name="last_name">Apellidos</string>
     <string name="address">Dirección</string>
     <string name="phone">Teléfono</string>
     <string name="confirm_password">Confirmar contraseña</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
