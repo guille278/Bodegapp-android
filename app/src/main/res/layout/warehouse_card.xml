@@ -36,7 +36,7 @@
 
 
         <TextView
-            android:id="@+id/tv_description"
+            android:id="@+id/tv_billing_period"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -52,14 +52,14 @@
             android:id="@+id/rv_services"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@+id/tv_description"
-            app:layout_constraintStart_toStartOf="@+id/tv_description"
-            app:layout_constraintTop_toBottomOf="@+id/tv_description"
+            app:layout_constraintEnd_toEndOf="@+id/tv_billing_period"
+            app:layout_constraintStart_toStartOf="@+id/tv_billing_period"
+            app:layout_constraintTop_toBottomOf="@+id/tv_billing_period"
             tools:listitem="@layout/service_tag"
             tools:itemCount="1"/>
 
         <TextView
-            android:id="@+id/tv_price"
+            android:id="@+id/tv_billing_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$4,000.00"

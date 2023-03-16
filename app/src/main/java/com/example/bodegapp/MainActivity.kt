@@ -7,6 +7,9 @@ import android.net.ConnectivityManager
 import android.net.Network
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.navigation.findNavController
@@ -28,18 +31,7 @@ class MainActivity : AppCompatActivity() {
         }
         token = preferences.getString("auth", "")!!
 
-        binding.mainToolbar.setOnMenuItemClickListener {
-
-            when (it.itemId) {
-                R.id.tb_profile -> {
-                    val intent = Intent(applicationContext, Profile::class.java)
-                    intent.putExtra("token", token)
-                    startActivity(intent)
-                    true
-                }
-                else -> false
-            }
-        }
+        setSupportActionBar(binding.mainToolbar)
 
         binding.myNav.setOnItemSelectedListener {
             val navController = findNavController(R.id.cv_main)
@@ -59,7 +51,27 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
+
         val view = binding.root
         setContentView(view)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.tb_profile -> {
+                val intent = Intent(applicationContext, Profile::class.java)
+                intent.putExtra("token", token)
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

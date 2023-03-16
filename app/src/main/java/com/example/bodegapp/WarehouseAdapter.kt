@@ -5,15 +5,9 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
-import com.squareup.picasso.Picasso
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import org.json.JSONArray
@@ -34,8 +28,8 @@ class WarehouseAdapter(private val warehouses: JSONArray, private val ctx: Conte
         init {
             images = itemView.findViewById(R.id.carousel_card)
             title = itemView.findViewById(R.id.tv_title)
-            description = itemView.findViewById(R.id.tv_description)
-            price = itemView.findViewById(R.id.tv_price)
+            description = itemView.findViewById(R.id.tv_billing_period)
+            price = itemView.findViewById(R.id.tv_billing_total)
             services = itemView.findViewById(R.id.rv_services)
 
         }

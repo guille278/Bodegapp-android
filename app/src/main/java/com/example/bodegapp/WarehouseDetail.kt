@@ -1,5 +1,6 @@
 package com.example.bodegapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -56,6 +57,13 @@ class WarehouseDetail : AppCompatActivity() {
         })
 
         queue.add(request)
+
+
+        binding.checkout.setOnClickListener {
+            val intent = Intent(this, Checkout::class.java)
+            intent.putExtra("storage_id", id)
+            startActivity(intent)
+        }
 
 
         val view = binding.root

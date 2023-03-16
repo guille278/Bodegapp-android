@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/checkout_nav_graph"
+    app:startDestination="@id/plan">
+    <fragment
+        android:id="@+id/plan"
+        android:name="com.example.bodegapp.Plan"
+        android:label="fragment_plan"
+        tools:layout="@layout/fragment_plan" >
+        <action
+            android:id="@+id/action_plan_to_resume"
+            app:destination="@id/resume"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <argument
+            android:name="storage_id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/resume"
+        android:name="com.example.bodegapp.Resume"
+        android:label="fragment_resume"
+        tools:layout="@layout/fragment_resume" >
+        <action
+            android:id="@+id/action_resume_to_confirmation"
+            app:destination="@id/confirmation"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action
+            android:id="@+id/action_resume_to_error"
+            app:destination="@id/error" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmation"
+        android:name="com.example.bodegapp.Confirmation"
+        android:label="fragment_confirmation"
+        tools:layout="@layout/fragment_confirmation" />
+    <fragment
+        android:id="@+id/error"
+        android:name="com.example.bodegapp.Error"
+        android:label="fragment_error"
+        tools:layout="@layout/fragment_error" />
+</navigation>

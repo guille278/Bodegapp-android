@@ -31,6 +31,8 @@ class Explorer : Fragment() {
 
         _binding = FragmentExplorerBinding.inflate(inflater, container, false)
 
+        (activity as MainActivity).supportActionBar?.title = getString(R.string.app_name)
+
         val queque = Volley.newRequestQueue(context)
         val requestCategories =
             JsonArrayRequest("${resources.getString(R.string.api_url)}/categories", { categories ->

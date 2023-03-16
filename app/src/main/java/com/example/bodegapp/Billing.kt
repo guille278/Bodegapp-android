@@ -1,59 +1,73 @@
 package com.example.bodegapp
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
+import com.example.bodegapp.databinding.FragmentBillingBinding
+import java.util.HashMap
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Billing.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Billing : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentBillingBinding? = null
+
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_billing, container, false)
+        _binding = FragmentBillingBinding.inflate(inflater, container, false)
+
+        val sharedPreferences =
+            requireActivity().baseContext.getSharedPreferences("auth", Context.MODE_PRIVATE)
+        val token = sharedPreferences.getString("auth", "")
+
+        (activity as MainActivity).supportActionBar?.title = "Recibos"
+
+        val queque = Volley.newRequestQueue(context)
+
+        val request = object : JsonArrayRequest(
+            "${getString(R.string.api_url)}/billing",
+            {
+                binding.rvBilling.adapter = BillingAdapter(it)
+                binding.rvBilling.layoutManager = LinearLayoutManager(context)
+            },
+            {
+                val alertDialog = context?.let { it1 -> AlertDialog.Builder(it1) }
+                alertDialog?.setTitle("Error en el servidor")
+                alertDialog?.setMessage("Error: ${it}")
+                alertDialog?.setPositiveButton("Aceptar", null)
+                alertDialog?.create()?.show()
+            }) {
+            override fun getHeaders(): MutableMap<String, String> {
+                val headers = HashMap<String, String>()
+                headers["Accept"] = "application/json"
+                headers["Authorization"] = "Bearer $token"
+                return headers
+            }
+        }
+
+        queque.add(request)
+
+
+        val view = binding.root
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Billing.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Billing().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

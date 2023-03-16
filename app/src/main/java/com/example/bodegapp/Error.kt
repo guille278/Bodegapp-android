@@ -1,15 +1,18 @@
 package com.example.bodegapp
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.bodegapp.databinding.FragmentWarehousesBinding
+import com.example.bodegapp.databinding.FragmentConfirmationBinding
+import com.example.bodegapp.databinding.FragmentErrorBinding
 
-class Warehouses : Fragment() {
+class Error : Fragment() {
 
-    private var _binding: FragmentWarehousesBinding? = null
+    private var _binding: FragmentErrorBinding? = null
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -19,10 +22,12 @@ class Warehouses : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentWarehousesBinding.inflate(inflater, container, false)
+        _binding = FragmentErrorBinding.inflate(inflater, container, false)
 
-        (activity as MainActivity).supportActionBar?.title = "Mis bodegas"
-
+        binding.finish.setOnClickListener{
+            startActivity(Intent(context, MainActivity::class.java))
+            this.activity?.finish()
+        }
 
         val view = binding.root
         return view
@@ -32,5 +37,4 @@ class Warehouses : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

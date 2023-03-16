@@ -5,9 +5,19 @@
     <string name="login_btn_login">Iniciar sesión</string>
     <string name="login_tv_signin">¿Aún no tienes cuenta?</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="api_url">http://192.168.1.70/rest/public/api</string>
-    <string name="faqs_link">http://192.168.1.70/rest/public/</string>
-    <string name="terms_link">http://192.168.1.70/rest/public/</string>
-    <string name="privacy_link">http://192.168.1.70/rest/public/</string>
+    <string name="api_url">http://192.168.1.77/rest/public/api</string>
+    <string name="faqs_link">https://bodegapp.medisant.mx</string>
+    <string name="terms_link">https://bodegapp.medisant.mx</string>
+    <string name="privacy_link">https://bodegapp.medisant.mx</string>
     <string name="support_phone">3319910156</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="plan_list">
+        <item>1 mes</item>
+        <item>3 meses</item>
+        <item>6 meses</item>
+        <item>12 meses</item>
+    </string-array>
 </resources>
