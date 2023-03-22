@@ -26,7 +26,7 @@ class WarehouseAdapter(private val warehouses: JSONArray, private val ctx: Conte
         var services: RecyclerView
 
         init {
-            images = itemView.findViewById(R.id.carousel_card)
+            images = itemView.findViewById(R.id.carousel_warehouse)
             title = itemView.findViewById(R.id.tv_title)
             description = itemView.findViewById(R.id.tv_billing_period)
             price = itemView.findViewById(R.id.tv_billing_total)

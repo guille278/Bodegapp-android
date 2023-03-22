@@ -23,7 +23,7 @@ class Warehouses : Fragment() {
 
         (activity as MainActivity).supportActionBar?.title = "Mis bodegas"
 
-
+        binding.myWarehouse.visibility = View.VISIBLE
         val view = binding.root
         return view
     }

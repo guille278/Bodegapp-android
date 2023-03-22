@@ -50,6 +50,7 @@ class Explorer : Fragment() {
 
                     )
                     binding.myTabLayout.visibility = View.VISIBLE
+
                 }
             }) {
                 val alertDialog = context?.let { it1 -> AlertDialog.Builder(it1) }
@@ -63,6 +64,7 @@ class Explorer : Fragment() {
 
         binding.myTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
+                println("PRUEBA DE ID"+{tab?.id})
                 val requestWarehouses =
                     JsonArrayRequest(
                         "${resources.getString(R.string.api_url)}/storages/category/${tab?.id}",
