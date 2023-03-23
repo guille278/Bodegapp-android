@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.menu_warehouse -> {
-                    navController.navigate(R.id.warehouses)
+                    navController.navigate(R.id.warehouses2)
                     true
                 }
                 R.id.menu_Payments -> {

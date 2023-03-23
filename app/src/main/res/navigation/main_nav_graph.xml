@@ -11,8 +11,8 @@
         android:label="fragment_explorer"
         tools:layout="@layout/fragment_explorer" />
     <fragment
-        android:id="@+id/warehouses"
-        android:name="com.example.bodegapp.Warehouses"
+        android:id="@+id/warehouses2"
+        android:name="com.example.bodegapp.MyWarehouse"
         android:label="fragment_warehouses"
         tools:layout="@layout/fragment_warehouses" />
     <fragment
