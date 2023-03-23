@@ -5,7 +5,7 @@
     <string name="login_btn_login">Iniciar sesión</string>
     <string name="login_tv_signin">¿Aún no tienes cuenta?</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="api_url">http://192.168.1.77/rest/public/api</string>
+    <string name="api_url">https://bodegapp.medisant.mx/api</string>
     <string name="faqs_link">https://bodegapp.medisant.mx</string>
     <string name="terms_link">https://bodegapp.medisant.mx</string>
     <string name="privacy_link">https://bodegapp.medisant.mx</string>

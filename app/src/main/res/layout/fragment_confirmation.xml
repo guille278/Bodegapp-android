@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:gravity="center"
-        android:text="Confirmation"
+        android:text="¡Operación exitosa!"
         android:textColor="?attr/colorControlNormal"
         android:textSize="24sp"
         android:textStyle="bold"
