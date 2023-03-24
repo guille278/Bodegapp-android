@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.navigation.fragment.findNavController
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
@@ -112,9 +113,10 @@ class Signin : Fragment() {
         }
 
         binding.cancelarRegister.setOnClickListener(){
-            val fragmentManager = requireActivity().supportFragmentManager
+            //val fragmentManager = requireActivity().supportFragmentManager
 
-            fragmentManager.popBackStack()
+            //fragmentManager.popBackStack()
+            findNavController().navigate(R.id.action_signin_to_login)
         }
         val view = binding.root
         return view

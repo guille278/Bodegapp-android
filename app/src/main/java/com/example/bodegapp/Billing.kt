@@ -41,6 +41,7 @@ class Billing : Fragment() {
         val request = object : JsonArrayRequest(
             "${getString(R.string.api_url)}/billing",
             {
+                println("${getString(R.string.api_url)}/billing")
                 binding.rvBilling.adapter = BillingAdapter(it)
                 binding.rvBilling.layoutManager = LinearLayoutManager(context)
             },
