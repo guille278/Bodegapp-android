@@ -1,11 +1,13 @@
 package com.example.bodegapp
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
@@ -13,6 +15,7 @@ import com.example.bodegapp.databinding.FragmentExplorerBinding
 import com.example.bodegapp.databinding.FragmentMyWarehouseBinding
 import com.example.bodegapp.databinding.FragmentWarehousesBinding
 import com.google.android.material.tabs.TabLayout
+import org.json.JSONObject
 import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -46,27 +49,42 @@ class MyWarehouse : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentWarehousesBinding.inflate(inflater, container, false)
 
-        (activity as MainActivity).supportActionBar?.title = getString(R.string.app_name)
-        val queque = Volley.newRequestQueue(context)
+        val sharedPreferences =
+            requireActivity().baseContext.getSharedPreferences("auth", Context.MODE_PRIVATE)
+        val token = sharedPreferences.getString("auth", "")
 
-        //override fun onTabSelected(tab: TabLayout.Tab?) {
-            //println("PRUEBA DE ID"+{tab?.id})
-        val id = 1;
-            val requestWarehouses =
-                JsonArrayRequest(
-                    "${resources.getString(R.string.api_url)}/storages/category/${id}",
-                    {
-                        binding.rvBode.adapter = context?.let { it1 ->
-                            WarehouseAdapter(it,
-                                it1
-                            )
-                        }
-                        binding.rvBode.layoutManager = LinearLayoutManager(context)
-                    },
-                    {
-                        Toast.makeText(context, it.toString(), Toast.LENGTH_SHORT).show()
-                    })
-            queque.add(requestWarehouses)
+        (activity as MainActivity).supportActionBar?.title = "Recibos"
+
+        val user  = JSONObject(sharedPreferences.getString("user", "").toString())
+
+        val queque = Volley.newRequestQueue(context)
+        println(user.getInt("id"))
+        val request = object : JsonArrayRequest(
+            "${getString(R.string.api_url)}/storageByUser/${user.getInt("id")}",
+            {
+                println("${getString(R.string.api_url)}/storageByUser/${user.getInt("id")}")
+                binding.rvBode.adapter = AdapterWar(it)
+                binding.rvBode.layoutManager = LinearLayoutManager(context)
+            },
+            {
+                val alertDialog = context?.let { it1 -> AlertDialog.Builder(it1) }
+                alertDialog?.setTitle("Error en el servidor")
+                alertDialog?.setMessage("Error: ${it}")
+                alertDialog?.setPositiveButton("Aceptar", null)
+                alertDialog?.create()?.show()
+            }) {
+            override fun getHeaders(): MutableMap<String, String> {
+                val headers = HashMap<String, String>()
+                headers["Accept"] = "application/json"
+                headers["Authorization"] = "Bearer $token"
+                return headers
+            }
+        }
+
+        queque.add(request)
+
+
+
         //}
         return inflater.inflate(R.layout.fragment_my_warehouse, container, false)
     }

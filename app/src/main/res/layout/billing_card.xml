@@ -45,7 +45,7 @@
                     android:text="dd/mm/yyyy - dd/mm/yyyy" />
 
                 <TextView
-                    android:id="@+id/tv_billing_total"
+                    android:id="@+id/tv_fecha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"

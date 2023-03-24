@@ -6,7 +6,8 @@
     <string name="login_tv_signin">¿Aún no tienes cuenta?</string>
     <!-- TODO: Remove or change this placeholder text -->
 
-    <string name="api_url">https://bodegapp.medisant.mx/api</string>
+    <!--<string name="api_url">https://bodegapp.medisant.mx/api</string>-->
+    <string name="api_url">http://192.168.100.13/api-bodegas/public/api</string>
 
     <string name="faqs_link">https://bodegapp.medisant.mx</string>
     <string name="terms_link">https://bodegapp.medisant.mx</string>

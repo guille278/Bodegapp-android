@@ -29,7 +29,7 @@ class WarehouseAdapter(private val warehouses: JSONArray, private val ctx: Conte
             images = itemView.findViewById(R.id.carousel_warehouse)
             title = itemView.findViewById(R.id.tv_title)
             description = itemView.findViewById(R.id.tv_billing_period)
-            price = itemView.findViewById(R.id.tv_billing_total)
+            price = itemView.findViewById(R.id.tv_fecha)
             services = itemView.findViewById(R.id.rv_services)
 
         }

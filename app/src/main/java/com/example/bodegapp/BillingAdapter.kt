@@ -23,7 +23,7 @@ class BillingAdapter(private val billings: JSONArray) :
         var warehouseTotal : TextView
         init {
             period = itemView.findViewById(R.id.tv_billing_period)
-            total = itemView.findViewById(R.id.tv_billing_total)
+            total = itemView.findViewById(R.id.tv_fecha)
             expandable = itemView.findViewById(R.id.layout_expandable)
             title = itemView.findViewById(R.id.tv_billing_warehouse_title)
             warehouseTotal = itemView.findViewById(R.id.tv_billing_warehouse_total)
