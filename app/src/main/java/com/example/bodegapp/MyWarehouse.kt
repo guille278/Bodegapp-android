@@ -53,7 +53,7 @@ class MyWarehouse : Fragment() {
             requireActivity().baseContext.getSharedPreferences("auth", Context.MODE_PRIVATE)
         val token = sharedPreferences.getString("auth", "")
 
-        (activity as MainActivity).supportActionBar?.title = "Recibos"
+        (activity as MainActivity).supportActionBar?.title = "Bodegas"
 
         val user  = JSONObject(sharedPreferences.getString("user", "").toString())
 
@@ -86,7 +86,8 @@ class MyWarehouse : Fragment() {
 
 
         //}
-        return inflater.inflate(R.layout.fragment_my_warehouse, container, false)
+        val view = binding.root
+        return view
     }
 
     companion object {
