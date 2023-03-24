@@ -1,5 +1,6 @@
 package com.example.bodegapp
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +15,7 @@ import org.json.JSONArray
 import java.text.NumberFormat
 import java.util.*
 
-class AdapterWar(private val ware: JSONArray) :
+class AdapterWar(private val ware: JSONArray, private val ctx: Context) :
     RecyclerView.Adapter<AdapterWar.ViewHolder>() {
 
     private var expandableList = ArrayList<LinearLayout>()
@@ -58,7 +59,7 @@ class AdapterWar(private val ware: JSONArray) :
         (0 until ware.getJSONObject(position).getJSONArray("images").length()).forEach {
             list.add(
                 CarouselItem(
-                    imageUrl = ware.getJSONObject(position).getJSONArray("images").getJSONObject(it).getString("src")
+                    imageUrl = ctx.resources.getString(R.string.image_url) +ware.getJSONObject(position).getJSONArray("images").getJSONObject(it).getString("src")
                 )
             )
         }

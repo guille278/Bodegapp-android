@@ -57,7 +57,7 @@ class WarehouseAdapter(private val warehouses: JSONArray, private val ctx: Conte
         (0 until warehouses.getJSONObject(position).getJSONArray("images").length()).forEach {
             list.add(
                 CarouselItem(
-                    imageUrl = warehouses.getJSONObject(position).getJSONArray("images").getJSONObject(it).getString("src")
+                    imageUrl = ctx.resources.getString(R.string.image_url) + warehouses.getJSONObject(position).getJSONArray("images").getJSONObject(it).getString("src")
                 )
             )
         }

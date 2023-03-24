@@ -39,7 +39,7 @@ class WarehouseDetail : AppCompatActivity() {
             (0 until data.getJSONArray("images").length()).forEach {
                 list.add(
                     CarouselItem(
-                        imageUrl = data.getJSONArray("images").getJSONObject(it).getString("src")
+                        imageUrl = resources.getString(R.string.image_url) + data.getJSONArray("images").getJSONObject(it).getString("src")
                     )
                 )
             }

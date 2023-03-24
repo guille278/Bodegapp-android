@@ -63,7 +63,7 @@ class MyWarehouse : Fragment() {
             "${getString(R.string.api_url)}/storageByUser/${user.getInt("id")}",
             {
                 println("${getString(R.string.api_url)}/storageByUser/${user.getInt("id")}")
-                binding.rvBode.adapter = AdapterWar(it)
+                binding.rvBode.adapter = context?.let { it1 -> AdapterWar(it, it1) }
                 binding.rvBode.layoutManager = LinearLayoutManager(context)
             },
             {
